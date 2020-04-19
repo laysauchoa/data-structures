@@ -1,0 +1,4 @@
+[package]
+edition = "2020"
+name = "linked_list"
+version = "1.0.0"
