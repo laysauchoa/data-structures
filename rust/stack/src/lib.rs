@@ -22,9 +22,8 @@ impl<T> LIFO<T> for Stack<T> {
                 Some(0)
             }
             Some(index) => {
-            self.stack_vec[(index+1) as usize] = Box::new(Some(value));
-            Some(index + 1)
-                
+                self.stack_vec[(index + 1) as usize] = Box::new(Some(value));
+                Some(index + 1)
             }
         };
     }
@@ -32,32 +31,27 @@ impl<T> LIFO<T> for Stack<T> {
         println!("self.index {:?}", self.index);
         match self.index {
             None => {
-            println!("aaaaaa");
                 self.index = None;
-                return &None
+                return &None;
             }
             Some(0) => {
-                println!("bbbb");
                 self.index = None;
-                return &self.stack_vec[0]
+                return &self.stack_vec[0];
             }
             Some(index) => {
-                println!("ccc");
-                self.index = Some(index-1);
-                return &self.stack_vec[index as usize]
+                self.index = Some(index - 1);
+                return &self.stack_vec[index as usize];
             }
         }
     }
 }
-
-
 
 #[cfg(test)]
 mod tests {
     #[test]
     fn test_stack() {
         use super::*;
-        let mut stack : Stack<u32> = Stack::new();
+        let mut stack: Stack<u32> = Stack::new();
         stack.push(2);
         stack.push(42);
 
@@ -65,6 +59,3 @@ mod tests {
         assert_eq!(stack.pop(), &Some(2));
     }
 }
-
-
-
