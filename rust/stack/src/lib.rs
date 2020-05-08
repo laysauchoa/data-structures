@@ -5,13 +5,13 @@ trait LIFO<T> {
 }
 
 struct Stack<T> {
-    stack_vec: [Box<Option<T>>; 3],
+    stack_vec: [Box<Option<T>>; 10],
     index: Option<u32>,
 }
 impl<T> LIFO<T> for Stack<T> {
     fn new() -> Self {
         return Self {
-            stack_vec: [Box::new(None), Box::new(None), Box::new(None)],
+            stack_vec: Default::default(),
             index: None,
         };
     }
