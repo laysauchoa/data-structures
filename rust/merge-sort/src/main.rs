@@ -37,32 +37,30 @@ pub fn sort(unsorted_list: Vec<u32>) -> Vec<u32> {
     );
 }
 
-    #[cfg(test)]
-    mod tests {
-        use crate::merge_sorted_lists;
-        #[test]
-        fn merge_two_small_lists() {
-            let arr: Vec<u32> = vec![2, 1];
-            let arr2: Vec<u32> = vec![6, 0];
-            assert_eq!(merge_sorted_lists(arr, arr2), [0, 1, 2, 6]);
-        }
-        #[test]
-        fn merge_with_empty_list() {
-            let arr: Vec<u32> = vec![2, 1, 100];
-            let arr2: Vec<u32> = vec![];
-            assert_eq!(merge_sorted_lists(arr, arr2), [1, 2, 100]);
-        }
-        #[test]
-        fn merge_two_lists() {
-            let arr: Vec<u32> = vec![6, 7, 0, 10, 300];
-            let arr2: Vec<u32> = vec![1, 2, 100, 9, 8];
-            assert_eq!(
-                merge_sorted_lists(arr, arr2),
-                [0, 1, 2, 6, 7, 8, 9, 10, 100, 300]
-            );
-        }
+#[cfg(test)]
+mod tests {
+    use crate::merge_sorted_lists;
+    #[test]
+    fn merge_two_small_lists() {
+        let arr: Vec<u32> = vec![2, 1];
+        let arr2: Vec<u32> = vec![6, 0];
+        assert_eq!(merge_sorted_lists(arr, arr2), [0, 1, 2, 6]);
     }
-
-fn main() {
-   
+    #[test]
+    fn merge_with_empty_list() {
+        let arr: Vec<u32> = vec![2, 1, 100];
+        let arr2: Vec<u32> = vec![];
+        assert_eq!(merge_sorted_lists(arr, arr2), [1, 2, 100]);
+    }
+    #[test]
+    fn merge_two_lists() {
+        let arr: Vec<u32> = vec![6, 7, 0, 10, 300];
+        let arr2: Vec<u32> = vec![1, 2, 100, 9, 8];
+        assert_eq!(
+            merge_sorted_lists(arr, arr2),
+            [0, 1, 2, 6, 7, 8, 9, 10, 100, 300]
+        );
+    }
 }
+
+fn main() {}
