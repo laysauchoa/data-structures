@@ -1,6 +1,6 @@
 pub fn merge_sorted_lists(left_list: Vec<u32>, right_list: Vec<u32>) -> Vec<u32> {
-    let sorted_left_list = sort(left_list);
-    let sorted_right_list = sort(right_list);
+    let sorted_left_list = sort_list(left_list);
+    let sorted_right_list = sort_list(right_list);
     let mut merged_list: Vec<u32> = Vec::new();
     let mut left_idx = 0;
     let mut right_idx = 0;
@@ -25,7 +25,7 @@ pub fn merge_sorted_lists(left_list: Vec<u32>, right_list: Vec<u32>) -> Vec<u32>
     return merged_list;
 }
 
-pub fn sort(unsorted_list: Vec<u32>) -> Vec<u32> {
+pub fn sort_list(unsorted_list: Vec<u32>) -> Vec<u32> {
     if unsorted_list.len() < 2 {
         return (unsorted_list).clone();
     }
@@ -39,7 +39,7 @@ pub fn sort(unsorted_list: Vec<u32>) -> Vec<u32> {
 
 #[cfg(test)]
 mod tests {
-    use crate::merge_sorted_lists;
+    use crate::{merge_sorted_lists, sort_list};
     #[test]
     fn merge_two_small_lists() {
         let arr: Vec<u32> = vec![2, 1];
@@ -59,6 +59,30 @@ mod tests {
         assert_eq!(
             merge_sorted_lists(arr, arr2),
             [0, 1, 2, 6, 7, 8, 9, 10, 100, 300]
+        );
+    }
+    #[test]
+    fn sort_empty_list() {
+        let arr: Vec<u32> = vec![];
+        assert_eq!(
+            sort_list(arr),
+            []
+        );
+    }
+    #[test]
+    fn sort_ordered_list() {
+        let arr: Vec<u32> = vec![1,2,3,4,5];
+        assert_eq!(
+            sort_list(arr),
+            [1,2,3,4,5]
+        );
+    }
+    #[test]
+    fn sort_unordered_list() {
+        let arr: Vec<u32> = vec![1, 2, 10, 0, 3, 8, 11];
+        assert_eq!(
+            sort_list(arr),
+            [0, 1,2,3,8, 10, 11]
         );
     }
 }
