@@ -1,5 +1,5 @@
 Merge Sort Merging
-===================
+------------------
 
 Merge Sort is a divide and conquer algorithm. It consists of two parts:
 
