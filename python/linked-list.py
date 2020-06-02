@@ -55,15 +55,18 @@ class LinkedList:
                 continue
 
     def reverse_list(self):
+        """
+        Reverse the self linked list
+        """
+        # Time complexity O(N)
+        # Space Complexity: O(1)
         current_node = self.get_head_node()
-        if current_node.get_next_node() is None:
-            self.head_node = current_node
+        if current_node.get_next_node() is None or current_node is None:
             return current_node
         self.head_node = current_node.next_node
         self.reverse_list()
         current_node.next_node.set_next_node(current_node)
         current_node.set_next_node(None)
-        return
 
 
 if __name__ == "__main__":
