@@ -32,8 +32,8 @@ class LinkedList:
         string_list = ""
         current_node = self.get_head_node()
         while current_node:
-            if current_node.get_value() != None:
-                string_list += str(current_node.get_value()) + "\n"
+            if current_node.get_value() is not None:
+                string_list += str(current_node.get_value()) + ","
             current_node = current_node.get_next_node()
         return string_list
 
@@ -53,14 +53,25 @@ class LinkedList:
                 previous_node = current_node
                 current_node = current_node.next_node
                 continue
-    # Define your remove_node method below:
+
+    def reverse_list(self):
+        current_node = self.get_head_node()
+        if current_node.get_next_node() is None:
+            self.head_node = current_node
+            return current_node
+        self.head_node = current_node.next_node
+        self.reverse_list()
+        current_node.next_node.set_next_node(current_node)
+        current_node.set_next_node(None)
+        return
+
 
 if __name__ == "__main__":
-    ll = LinkedList(5)
-    ll.insert_beginning(70)
-    ll.insert_beginning(5675)
-    ll.insert_beginning(90)
-    ll.remove_node(90)
-    ll.remove_node(5)
-    current_node = ll.head_node
-    print(ll.stringify_list())
+    la = LinkedList(4)
+    la.insert_beginning(3)
+    la.insert_beginning(2)
+    la.insert_beginning(1)
+
+    print(la.stringify_list())
+    la.reverse_list()
+    print(la.stringify_list())
