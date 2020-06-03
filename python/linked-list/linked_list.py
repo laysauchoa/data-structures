@@ -13,8 +13,6 @@ class Node:
     def set_next_node(self, next_node):
         self.next_node = next_node
 
-# Our LinkedList class
-
 
 class LinkedList:
     def __init__(self, value=None):
@@ -35,7 +33,7 @@ class LinkedList:
             if current_node.get_value() is not None:
                 string_list += str(current_node.get_value()) + ","
             current_node = current_node.get_next_node()
-        return string_list
+        return string_list[:-1]
 
     def remove_node(self, value_to_remove):
         current_node = self.get_head_node()
@@ -68,6 +66,31 @@ class LinkedList:
         current_node.next_node.set_next_node(current_node)
         current_node.set_next_node(None)
 
+    # detecting Loops in Linked Lists
+    @property
+    def iscircular(self):
+        """
+        Determine whether the Linked List is circular or not
+
+        Args:
+        self(obj): Linked List to be checked
+        Returns:
+        bool: Return True if the linked list is circular, return False otherwise
+        """
+        fast_pointer = self.get_head_node()
+        slow_pointer = self.get_head_node()
+
+        if self.get_head_node() is None:
+            return True
+
+        while fast_pointer and fast_pointer.get_next_node():
+            fast_pointer = fast_pointer.get_next_node().get_next_node()
+            slow_pointer = slow_pointer.get_next_node()
+            if slow_pointer == fast_pointer:
+                return True
+
+        return False
+
 
 if __name__ == "__main__":
     la = LinkedList(4)
@@ -78,3 +101,15 @@ if __name__ == "__main__":
     print(la.stringify_list())
     la.reverse_list()
     print(la.stringify_list())
+    list_with_loop = LinkedList([2, -1, 3, 0, 5])
+    print("Before turn Linked List circular", la.iscircular)
+
+    current_node = la.get_head_node()
+    while current_node.get_next_node():
+        current_node = current_node.get_next_node()
+    current_node.set_next_node(la.get_head_node().get_next_node())
+    print("Before turn Linked List circular", la.iscircular)
+    
+    print("After turning Linked List", la.iscircular)
+    empty_linked_list = LinkedList()
+    print("Empty Linked list", empty_linked_list.iscircular)
