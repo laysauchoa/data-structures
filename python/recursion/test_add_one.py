@@ -1,13 +1,13 @@
 import pytest
 import sys
 
-sys.path.append("..")
-from add_one import add_one
+from ..add_one import add_one
 
 
 def test_add_one_no_carry():
     array = [1, 2, 4]
     assert add_one(array) == [1, 2, 5]
+
 
 def test_one_single():
     array = [9]
@@ -26,4 +26,4 @@ def test_one_half_carry():
 
 def test_extra_value():
     array = [9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
-    assert add_one(array) == [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    assert add_one(array) == [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
