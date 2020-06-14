@@ -1,8 +1,7 @@
 import pytest
 import sys
 
-sys.path.append("..")
-from duplicate_number import duplicate_number
+from ..duplicate_number import duplicate_number
 
 
 @pytest.mark.parametrize("array_input, repeated_number", [

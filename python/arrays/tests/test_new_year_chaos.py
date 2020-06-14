@@ -2,8 +2,7 @@
 import pytest
 import sys
 
-sys.path.append("..")
-from new_year_chaos import minimumBribes
+from ..new_year_chaos import minimumBribes
 
 @pytest.mark.parametrize("test_input,expected", [([5, 1, 2, 3, 7, 8, 6, 4], "Too chaotic")])
 def test_minimumBribes_too_chaotic(test_input, expected):
