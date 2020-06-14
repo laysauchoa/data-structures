@@ -2,8 +2,7 @@
 import pytest
 import sys
 
-sys.path.append("..")
-from palidrome import is_palindrome, isPalindrome
+from ..palidrome import is_palindrome, isPalindrome
 
 @pytest.mark.parametrize("word, is_palindrome", [
     ("abba", True),
