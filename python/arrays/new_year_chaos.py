@@ -58,3 +58,5 @@ if __name__ == "__main__":
 
     example = [2, 1, 5, 3, 4]
     print(minimumBribes(example))
+
+
