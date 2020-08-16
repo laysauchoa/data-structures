@@ -1,4 +1,4 @@
 ![alt-text](https://github.com/laysauchoa/data-structures/blob/master/gif_tittle.gif)
 
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=laysauchoa)](https://github.com/laysauchoa/github-readme-stats-include_all_commits)
+![Minji's Stats](https://github-readme-stats.vercel.app/api?username=laysauchoa&hide=stars&hide_title=true&show_icons=true&icon_color=333&title_color=333&text_color=777&count_private=true&include_all_commits=true)
